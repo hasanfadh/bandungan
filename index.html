@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desa Bandungan — Saradan, Madiun</title>
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Playfair Display & Source Sans Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --earth-dark: #2d3319;
+            --earth-mid: #5a6b3c;
+            --earth-light: #8a9a6d;
+            --sand: #d4c5aa;
+            --cream: #f5f1e8;
+            --rust: #a67c52;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--earth-dark);
+            background: var(--cream);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(245, 241, 232, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(45, 51, 25, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(245, 241, 232, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        
+        /* Hero asymmetric layout */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            min-height: 100vh;
+            align-items: center;
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+        }
+        
+        /* Large typography */
+        .display-1 {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        .display-2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.2;
+        }
+        
+        /* Photo overlay effect */
+        .photo-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .photo-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(45, 51, 25, 0.3));
+            pointer-events: none;
+        }
+        
+        .photo-overlay img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .photo-overlay:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Asymmetric sections */
+        .section-offset {
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+        
+        @media (min-width: 1024px) {
+            .section-offset-left {
+                margin-left: 15%;
+                margin-right: 5%;
+            }
+            
+            .section-offset-right {
+                margin-left: 5%;
+                margin-right: 15%;
+            }
+        }
+        
+        /* Stats with lines */
+        .stat-line {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .stat-line::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--earth-mid);
+        }
+        
+        /* Pull quotes */
+        .pullquote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            line-height: 1.4;
+            color: var(--earth-mid);
+            padding: 3rem 0;
+            margin: 4rem 0;
+            border-top: 2px solid var(--earth-mid);
+            border-bottom: 2px solid var(--earth-mid);
+        }
+        
+        /* Image grid magazine style */
+        .magazine-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .grid-span-5 { grid-column: span 5; }
+        .grid-span-7 { grid-column: span 7; }
+        .grid-span-4 { grid-column: span 4; }
+        .grid-span-8 { grid-column: span 8; }
+        
+        @media (max-width: 768px) {
+            .magazine-grid > * {
+                grid-column: span 12 !important;
+            }
+        }
+        
+        /* Program cards */
+        .program-item {
+            border-left: 3px solid var(--earth-mid);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .program-item:hover {
+            border-color: var(--rust);
+            transform: translateX(10px);
+        }
+        
+        /* Footer editorial */
+        .footer-editorial {
+            background: var(--earth-dark);
+            color: var(--cream);
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--cream);
+            transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 2000;
+            box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        /* Smooth fade in */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Number accent */
+        .number-accent {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 0.8;
+            color: var(--sand);
+            opacity: 0.5;
+        }
+        
+        /* Link underline effect */
+        .link-underline {
+            position: relative;
+            text-decoration: none;
+        }
+        
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+        
+        .link-underline:hover::after {
+            width: 100%;
+        }
+        
+        /* BBK 7 badge */
+        .bbk7-badge {
+            display: inline-block;
+            background: var(--rust);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transform: rotate(-2deg);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="assets/logo.png" alt="Logo Desa Bandungan" class="h-8 w-8 mr-4 inline-block">
+                    <a href="#hero" class="text-xl font-bold" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">
+                        Desa Bandungan
+                    </a>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8 text-sm">
+                    <a href="#hero" class="link-underline" style="color: var(--earth-dark);">Beranda</a>
+                    <a href="#tentang" class="link-underline" style="color: var(--earth-dark);">Tentang</a>
+                    <a href="#statistik" class="link-underline" style="color: var(--earth-dark);">Statistik</a>
+                    <a href="#potensi" class="link-underline" style="color: var(--earth-dark);">Potensi</a>
+                    <a href="#BBK 7" class="link-underline" style="color: var(--earth-dark);">BBK 7</a>
+                    <a href="#kontak" class="link-underline" style="color: var(--earth-dark);">Kontak</a>
+                </div>
+                
+                <!-- Mobile Toggle -->
+                <button id="mobile-toggle" class="md:hidden" style="color: var(--earth-dark);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="p-6">
+            <button id="mobile-close" class="mb-8" style="color: var(--earth-dark);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="flex flex-col gap-6 text-xl" style="font-family: 'Playfair Display', serif;">
+                <a href="#hero" class="mobile-link">Beranda</a>
+                <a href="#tentang" class="mobile-link">Tentang</a>
+                <a href="#statistik" class="mobile-link">Statistik</a>
+                <a href="#potensi" class="mobile-link">Potensi</a>
+                <a href="#BBK 7" class="mobile-link">BBK 7</a>
+                <a href="#kontak" class="mobile-link">Kontak</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-grid pt-20">
+        <!-- Left: Typography -->
+        <div class="flex items-center px-8 lg:px-16 py-16 lg:py-0">
+            <div>
+                <div class="text-sm uppercase tracking-widest mb-4" style="color: var(--earth-mid); font-weight: 600;">
+                    Saradan — Madiun
+                </div>
+                <h1 class="display-1 mb-6" style="color: var(--earth-dark);">
+                    Desa<br/>Bandungan
+                </h1>
+                <div class="text-xl md:text-2xl italic mb-8" style="font-family: 'Playfair Display', serif; color: var(--earth-mid);">
+                    Bandungan josjis
+                </div>
+                <p class="text-lg mb-8 max-w-lg" style="color: var(--earth-mid);">
+                    Sebuah desa di Kecamatan Saradan, Kabupaten Madiun, Jawa Timur yang sedang bertransformasi menuju masa depan yang berkelanjutan.
+                </p>
+                <a href="#BBK 7" class="inline-block px-8 py-4 text-white font-medium" style="background: var(--earth-dark); transition: all 0.3s ease;">
+                    Lihat Program BBK 7 →
+                </a>
+            </div>
+        </div>
+        
+        <!-- Right: Video Hero -->
+        <div class="relative h-screen lg:h-auto overflow-hidden">
+            <video 
+                autoplay 
+                muted 
+                loop 
+                playsinline
+                class="w-full h-full object-cover"
+                style="min-height: 600px;">
+                <source src="assets/video/desa.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none"></div>
+        </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section id="tentang" class="py-20 section-offset-right">
+        <div class="fade-in">
+            <div class="text-sm uppercase tracking-widest mb-6" style="color: var(--earth-mid); font-weight: 600;">
+                Tentang Kami
+            </div>
+            <h2 class="display-2 mb-8 max-w-3xl">
+                Menciptakan desa yang maju, sejahtera, dan berkelanjutan
+            </h2>
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+                <div>
+                    <p class="text-lg mb-6" style="color: var(--earth-mid);">
+                        Desa Bandungan terletak di ujung timur Kecamatan Saradan, Kabupaten Madiun. Dengan luas wilayah 312 hektar dan populasi lebih dari 4.500 jiwa, kami adalah komunitas yang dinamis dan berkembang.
+                    </p>
+                    <p class="text-lg" style="color: var(--earth-mid);">
+                        Kami percaya pada kekuatan kolaborasi antara pemerintah desa, masyarakat, dan generasi muda untuk menciptakan perubahan yang bermakna dan berkelanjutan.
+                    </p>
+                </div>
+                <div>
+                    <div class="pullquote text-xl lg:text-2xl border-0 py-0 my-0" style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--earth-mid);">
+                        "Terwujudnya Desa Bandungan yang Maju, Sejahtera, dan Berkelanjutan"
+                    </div>
+                    <p class="text-sm mt-4" style="color: var(--earth-mid);">— Visi Desa Bandungan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section id="statistik" class="py-20" style="background: white;">
+        <div class="section-offset-left fade-in">
+            <div class="text-sm uppercase tracking-widest mb-12" style="color: var(--earth-mid); font-weight: 600;">
+                Data & Statistik
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-20">
+                <div class="stat-line">
+                    <div class="text-5xl lg:text-6xl font-bold mb-2" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">
+                        4.523
+                    </div>
+                    <div class="text-lg" style="color: var(--earth-mid);">Penduduk</div>
+                </div>
+                
+                <div class="stat-line">
+                    <div class="text-5xl lg:text-6xl font-bold mb-2" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">
+                        1.289
+                    </div>
+                    <div class="text-lg" style="color: var(--earth-mid);">Kepala Keluarga</div>
+                </div>
+                
+                <div class="stat-line">
+                    <div class="text-5xl lg:text-6xl font-bold mb-2" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">
+                        312
+                    </div>
+                    <div class="text-lg" style="color: var(--earth-mid);">Hektar Wilayah</div>
+                </div>
+                
+                <div class="stat-line">
+                    <div class="text-5xl lg:text-6xl font-bold mb-2" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">
+                        3
+                    </div>
+                    <div class="text-lg" style="color: var(--earth-mid);">Dusun</div>
+                </div>
+            </div>
+            
+            <!-- Demografi Grid -->
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-2xl mb-6" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">
+                        Berdasarkan Usia
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-baseline border-b pb-3" style="border-color: rgba(45, 51, 25, 0.1);">
+                            <span style="color: var(--earth-mid);">0—17 tahun</span>
+                            <span class="text-2xl font-bold" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">1.245</span>
+                        </div>
+                        <div class="flex justify-between items-baseline border-b pb-3" style="border-color: rgba(45, 51, 25, 0.1);">
+                            <span style="color: var(--earth-mid);">18—59 tahun</span>
+                            <span class="text-2xl font-bold" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">2.678</span>
+                        </div>
+                        <div class="flex justify-between items-baseline border-b pb-3" style="border-color: rgba(45, 51, 25, 0.1);">
+                            <span style="color: var(--earth-mid);">60+ tahun</span>
+                            <span class="text-2xl font-bold" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">600</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl mb-6" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">
+                        Berdasarkan Jenis Kelamin
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-baseline border-b pb-3" style="border-color: rgba(45, 51, 25, 0.1);">
+                            <span style="color: var(--earth-mid);">Laki-laki</span>
+                            <span class="text-2xl font-bold" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">2.289</span>
+                        </div>
+                        <div class="flex justify-between items-baseline border-b pb-3" style="border-color: rgba(45, 51, 25, 0.1);">
+                            <span style="color: var(--earth-mid);">Perempuan</span>
+                            <span class="text-2xl font-bold" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">2.234</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POTENSI SECTION -->
+    <section id="potensi" class="py-20">
+        <div class="section-offset fade-in">
+            <div class="text-sm uppercase tracking-widest mb-12" style="color: var(--earth-mid); font-weight: 600;">
+                Potensi Desa
+            </div>
+            
+            <h2 class="display-2 mb-16">
+                Kekayaan alam dan <br>Ekonomi yang berkembang
+            </h2>
+            
+            <!-- Magazine Grid Layout -->
+            <div class="magazine-grid mb-16">
+                <!-- Large Photo -->
+                <div class="grid-span-7 photo-overlay h-96">
+                    <div class="w-full h-full" style="background: linear-gradient(135deg, var(--earth-light) 0%, var(--rust) 100%);">
+                        <div class="flex items-center justify-center h-full text-white text-xl opacity-50">
+                            <img src="assets/template/sawah.png" alt="Sawah Desa Bandungan" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Info Box -->
+                <div class="grid-span-5 flex items-center" style="background: var(--earth-dark); color: var(--cream); padding: 3rem;">
+                    <div>
+                        <h3 class="text-3xl mb-4" style="font-family: 'Playfair Display', serif;">
+                            Pertanian
+                        </h3>
+                        <ul class="space-y-3 text-lg">
+                            <li>180 Ha sawah produktif</li>
+                            <li>45 Ha kebun campuran</li>
+                            <li>Panen padi 2x setahun</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Another Info -->
+                <div class="grid-span-4 flex items-center" style="background: var(--rust); color: white; padding: 3rem;">
+                    <div>
+                        <h3 class="text-3xl mb-4" style="font-family: 'Playfair Display', serif;">
+                            Ekonomi
+                        </h3>
+                        <ul class="space-y-3">
+                            <li>Pasar tradisional aktif</li>
+                            <li>23 UMKM kuliner</li>
+                            <li>15 toko kelontong</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Photo -->
+                <div class="grid-span-8 photo-overlay h-96">
+                    <div class="w-full h-full" style="background: linear-gradient(135deg, var(--sand) 0%, var(--earth-mid) 100%);">
+                        <div class="flex items-center justify-center h-full text-white text-xl opacity-50">
+                            <img src="assets/template/pasar.png" alt="Pasar Tradisional Desa Bandungan" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fasilitas List -->
+            <div class="max-w-2xl">
+                <h3 class="text-2xl mb-6" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">
+                    Fasilitas Publik
+                </h3>
+                <div class="grid md:grid-cols-2 gap-4 text-lg" style="color: var(--earth-mid);">
+                    <div>• Balai Desa</div>
+                    <div>• Posyandu (3 unit)</div>
+                    <div>• Masjid (4 unit)</div>
+                    <div>• Lapangan Olahraga</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BBK 7 SECTION -->
+    <section id="BBK 7" class="py-20" style="background: var(--earth-dark); color: var(--cream);">
+        <div class="section-offset fade-in">
+            <div class="bbk7-badge mb-8">
+                Program Unggulan
+            </div>
+            
+            <div>
+                <div class="text-sm uppercase tracking-widest mb-4" style="color: var(--sand); font-weight: 600;">
+                    BBK 7 Universitas Airlangga
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 mb-6">
+                <div>
+                    <h2 class="display-1 mb-8">
+                        Pasar Bersih<br/>Bernilai
+                    </h2>
+                </div>
+                
+                <div>
+                    <img src="assets/dokum/foto1.png" alt="foto kelompok BBK 7" class="w-full h-64 object-cover rounded-lg shadow-lg">
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 mb-16">
+                <div>
+                    <p class="text-xl mb-6" style="color: var(--sand);">
+                        Program BBK 7 Universitas Airlangga yang fokus pada pengelolaan sampah pasar melalui pemilahan dan komposting untuk menciptakan pasar yang bersih dan berkelanjutan.
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="text-sm uppercase tracking-widest mb-2" style="color: var(--sand); opacity: 0.7;">Periode</div>
+                            <div class="text-lg">Januari 2026</div>
+                        </div>
+                        <div>
+                            <div class="text-sm uppercase tracking-widest mb-2" style="color: var(--sand); opacity: 0.7;">Dosen Pembimbing</div>
+                            <div class="text-lg">Samidi</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="assets/dokum/foto2.png" alt="foto pasar tradisional" class="w-full h-64 object-cover rounded-lg shadow-lg">
+                </div>
+            </div>
+            
+            <!-- Program Timeline -->
+            <div class="mb-16">
+                <h3 class="text-3xl mb-8" style="font-family: 'Playfair Display', serif;">
+                    Tahapan Program
+                </h3>
+                
+                <div class="space-y-2">
+                    <div class="program-item mb-0">
+                        <div class="flex gap-4 items-center">
+                            <div class="number-accent">01</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-semibold mb-2">Observasi & Pendekatan Pedagang</h4>
+                                <p style="color: var(--sand); opacity: 0.8;">Survei kondisi pasar dan pendekatan kepada pedagang untuk memahami kebiasaan pengelolaan sampah.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="program-item">
+                        <div class="flex gap-4 items-center">
+                            <div class="number-accent">02</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-semibold mb-2">Sosialisasi Pemilahan Sampah</h4>
+                                <p style="color: var(--sand); opacity: 0.8;">Edukasi tentang pentingnya pemilahan sampah organik dan anorganik.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="program-item">
+                        <div class="flex gap-4 items-center">
+                            <div class="number-accent">03</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-semibold mb-2">Implementasi Pemilahan & Komposter</h4>
+                                <p style="color: var(--sand); opacity: 0.8;">Penempatan tempat sampah terpilah dan praktik pembuatan kompos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="program-item">
+                        <div class="flex gap-4 items-center">
+                            <div class="number-accent">04</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-semibold mb-2">Monitoring & Evaluasi</h4>
+                                <p style="color: var(--sand); opacity: 0.8;">Pengawasan rutin dan apresiasi pedagang teladan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="program-item">
+                        <div class="flex gap-4 items-center">
+                            <div class="number-accent">05</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-semibold mb-2">Penyusunan SOP & Serah Terima</h4>
+                                <p style="color: var(--sand); opacity: 0.8;">Dokumentasi prosedur dan serah terima program untuk keberlanjutan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Program Pendukung -->
+            <div>
+                <h3 class="text-3xl mb-8" style="font-family: 'Playfair Display', serif;">
+                    Program Pendukung
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-lg">
+                    <div>
+                        <h4>Hari Pasar Bersih</h4>
+                        <p style="color: var(--sand); opacity: 0.8;">1 hari khusus bersih-bersih pasar</p>
+                        <img src="assets/foto2.jpeg" alt="foto hari pasar bersih" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
+                    </div>
+                    <div>
+                        <h4>Dapur Gizi Pasar</h4>
+                        <p style="color: var(--sand); opacity: 0.8;">Cegah stunting dengan bahan lokal</p>
+                        <img src="assets/foto3.jpeg" alt="foto dapur gizi pasar" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
+                    </div>
+                    <div>
+                        <h4>Pojok Gizi & Kesehatan</h4>
+                        <p style="color: var(--sand); opacity: 0.8;">Poster edukasi ringan & berkelanjutan</p>
+                        <img src="assets/foto4.jpeg" alt="foto pojok gizi & kesehatan" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
+                    </div>
+                    <div>
+                        <h4>Kelas Masa Depan Remaja</h4>
+                        <p style="color: var(--sand); opacity: 0.8;">Diskusi perencanaan hidup</p>
+                        <img src="assets/foto5.jpeg" alt="foto kelas masa depan remaja" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
+                    </div>
+                    <div>
+                        <h4>Literasi Digital Remaja</h4>
+                        <p style="color: var(--sand); opacity: 0.8;">Edukasi literasi digital dan dampak hoaks</p>
+                        <img src="assets/foto6.jpeg" alt="foto literasi digital remaja" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
+                    </div>
+                    <div>
+                        <h4>Aktivasi Media & Arsip Desa</h4>
+                        <p style="color: var(--sand); opacity: 0.8;">Pengelolaan website dan arsip digital desa</p>
+                        <img src="assets/foto7.jpeg" alt="foto aktivasi media & arsip desa" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ANGGOTA BBK 7 SECTION -->
+    <section id="anggota" class="py-20">
+        <div class="section-offset fade-in">
+            <div class="text-sm uppercase tracking-widest mb-12" style="color: var(--earth-mid); font-weight: 600;">
+                BBK 7 Universitas Airlangga
+            </div>
+
+            <div>
+                <h2 class="display-2 mb-8 max-w-3xl">
+                    Kenali Tim BBK 7 Kami
+                </h2>
+            </div>
+
+            <div class="mb-12">
+                <div class="mb-12">
+                    <div class="relative overflow-hidden">
+                        <div class="flex space-x-6 overflow-x-scroll pb-6" style="scrollbar-width: thin; scrollbar-color: var(--earth-mid) transparent;">
+                            <!-- Foto 1 -->
+                            <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
+                                <img src="assets/dokum/foto1.png" alt="Foto 1" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <!-- Foto 2 -->
+                            <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
+                                <img src="assets/dokum/foto2.png" alt="Foto 2" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <!-- Foto 3 -->
+                            <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
+                                <img src="assets/dokum/foto3.png" alt="Foto 3" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <!-- Foto 4 -->
+                            <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
+                                <img src="assets/dokum/foto4.png" alt="Foto 4" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <!-- Foto 5 -->
+                            <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
+                                <img src="assets/dokum/foto5.png" alt="Foto 5" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <!-- Foto 6 -->
+                            <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
+                                <img src="assets/dokum/foto6.png" alt="Foto 6" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-center text-gray-500 mt-6 text-sm md:text-base">
+                        ← Geser ke kanan untuk melihat lebih banyak →
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-4 gap-span-8 gap-12">
+                    <!-- Anggota 1 -->
+                    <div class="text-center">
+                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+                            <img src="assets/anggota/nada.png" alt="Nada" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Nada</div>
+                        <div style="color: var(--earth-mid); opacity: 0.8;">Ketua</div>
+                    </div>
+                    
+                    <!-- Anggota 2 -->
+                    <div class="text-center">
+                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+                            <img src="assets/anggota/elga.png" alt="Elga" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Elga</div>
+                        <div style="color: var(--earth-mid); opacity: 0.8;">Sekretaris</div>
+                    </div>
+                    
+                    <!-- Anggota 3 -->
+                    <div class="text-center">
+                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+                            <img src="assets/anggota/sasa.png" alt="Sasa" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Sasa</div>
+                        <div style="color: var(--earth-mid); opacity: 0.8;">Bendahara</div>
+                    </div>
+                    
+                    <!-- Anggota 4 -->
+                    <div class="text-center">
+                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+                            <img src="assets/anggota/hasan.png" alt="Hasan" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Hasan</div>
+                        <div style="color: var(--earth-mid); opacity: 0.8;">Acara</div>
+                    </div>
+
+                    <!-- Anggota 5 -->
+                    <div class="text-center">
+                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+                            <img src="assets/anggota/roofi.png" alt="Roofi'" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Roofi'</div>
+                        <div style="color: var(--earth-mid); opacity: 0.8;">Acara</div>
+                    </div>
+
+                    <!-- Anggota 6 -->
+                    <div class="text-center">
+                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+                            <img src="assets/anggota/viva.png" alt="Viva" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Viva</div>
+                        <div style="color: var(--earth-mid); opacity: 0.8;">Humas</div>
+                    </div>
+
+                    <!-- Anggota 7 -->
+                    <div class="text-center">
+                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+                            <img src="assets/anggota/hasna.png" alt="Hasna" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Hasna</div>
+                        <div style="color: var(--earth-mid); opacity: 0.8;">PDD</div>
+                    </div>
+
+                    <!-- Anggota 8 -->
+                    <div class="text-center">
+                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+                            <img src="assets/anggota/ari.png" alt="Ari" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Ari</div>
+                        <div style="color: var(--earth-mid); opacity: 0.8;">PDD</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="kontak" class="py-20" style="background: white; color: var(--earth-dark);">
+        <div class="section-offset-right fade-in">
+            <div class="text-sm uppercase tracking-widest mb-12" style="color: var(--earth-mid); font-weight: 600;">
+                Hubungi Kami
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="display-2 mb-8">
+                        Mari<br/>Berkolaborasi
+                    </h2>
+                    <p class="text-xl mb-12" style="color: var(--earth-mid);">
+                        Kami terbuka untuk kolaborasi dan kerja sama yang bermanfaat bagi kemajuan Desa Bandungan.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <div class="text-sm uppercase tracking-widest mb-2" style="color: var(--earth-mid); opacity: 0.7;">Alamat</div>
+                            <div class="text-lg">Jl. Raya Bandungan, Kec. Saradan<br/>Kab. Madiun, Jawa Timur</div>
+                        </div>
+                        <div>
+                            <div class="text-sm uppercase tracking-widest mb-2" style="color: var(--earth-mid); opacity: 0.7;">Telepon</div>
+                            <div class="text-lg">0351-123456</div>
+                        </div>
+                        <div>
+                            <div class="text-sm uppercase tracking-widest mb-2" style="color: var(--earth-mid); opacity: 0.7;">Email</div>
+                            <div class="text-lg">desabandungan@madiunkab.go.id</div>
+                        </div>
+                        <div>
+                            <div class="text-sm uppercase tracking-widest mb-2" style="color: var(--earth-mid); opacity: 0.7;">WhatsApp</div>
+                            <a href="https://wa.me/6281234567890" class="text-lg link-underline" style="color: var(--earth-dark);">
+                                +62 812-3456-7890
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <input type="text" id="nama" placeholder="Nama Lengkap" required
+                                   class="w-full px-0 py-3 border-0 border-b-2 focus:outline-none focus:border-current bg-transparent"
+                                   style="border-color: rgba(45, 51, 25, 0.2); color: var(--earth-dark);">
+                        </div>
+                        <div>
+                            <input type="email" id="email" placeholder="Email" required
+                                   class="w-full px-0 py-3 border-0 border-b-2 focus:outline-none focus:border-current bg-transparent"
+                                   style="border-color: rgba(45, 51, 25, 0.2); color: var(--earth-dark);">
+                        </div>
+                        <div>
+                            <input type="tel" id="telp" placeholder="Nomor WhatsApp" required
+                                   class="w-full px-0 py-3 border-0 border-b-2 focus:outline-none focus:border-current bg-transparent"
+                                   style="border-color: rgba(45, 51, 25, 0.2); color: var(--earth-dark);">
+                        </div>
+                        <div>
+                            <textarea id="pesan" rows="4" placeholder="Pesan Anda" required
+                                      class="w-full px-0 py-3 border-0 border-b-2 focus:outline-none focus:border-current bg-transparent resize-none"
+                                      style="border-color: rgba(45, 51, 25, 0.2); color: var(--earth-dark);"></textarea>
+                        </div>
+                        <button type="button" onclick="sendWhatsApp()" 
+                                class="px-8 py-4 text-white font-medium w-full md:w-auto"
+                                style="background: var(--earth-dark); transition: all 0.3s ease;">
+                            Kirim Pesan →
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-editorial py-16">
+        <div class="section-offset">
+            <div class="grid lg:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="text-2xl mb-4" style="font-family: 'Playfair Display', serif;">
+                        Desa Bandungan
+                    </div>
+                    <p style="color: var(--sand); opacity: 0.8;">
+                        Jl. Raya Bandungan, Kec. Saradan<br/>
+                        Kab. Madiun, Jawa Timur
+                    </p>
+                </div>
+                
+                <div>
+                    <div class="text-sm uppercase tracking-widest mb-4" style="color: var(--sand); opacity: 0.7;">
+                        Navigasi
+                    </div>
+                    <div class="space-y-2">
+                        <div><a href="#hero" class="link-underline" style="color: var(--cream);">Beranda</a></div>
+                        <div><a href="#tentang" class="link-underline" style="color: var(--cream);">Tentang</a></div>
+                        <div><a href="#statistik" class="link-underline" style="color: var(--cream);">Statistik</a></div>
+                        <div><a href="#potensi" class="link-underline" style="color: var(--cream);">Potensi</a></div>
+                        <div><a href="#BBK 7" class="link-underline" style="color: var(--cream);">BBK 7</a></div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="text-sm uppercase tracking-widest mb-4" style="color: var(--sand); opacity: 0.7;">
+                        BBK 7 Unair
+                    </div>
+                    <p style="color: var(--sand); opacity: 0.8;">
+                        Periode Januari 2026<br/>
+                        Universitas Airlangga<br/>
+                        Dosen Pembimbing: Samidi
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t pt-8" style="border-color: rgba(245, 241, 232, 0.2);">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm" style="color: var(--sand); opacity: 0.7;">
+                    <div>© 2026 Desa Bandungan. Website dibuat sebagai bagian dari BBK 7 Universitas Airlangga.</div>
+                    <div class="flex gap-6">
+                        <a href="https://www.instagram.com/bbk7unair_bandungan/" class="link-underline">Instagram</a>
+                        <a href="https://wa.me/6281234567890" class="link-underline">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileClose = document.getElementById('mobile-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        mobileClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Navbar scroll
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Fade in on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        fadeElements.forEach(el => fadeObserver.observe(el));
+        
+        // WhatsApp send
+        function sendWhatsApp() {
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            const telp = document.getElementById('telp').value;
+            const pesan = document.getElementById('pesan').value;
+            
+            if (!nama || !email || !telp || !pesan) {
+                alert('Mohon lengkapi semua field');
+                return;
+            }
+            
+            const message = `*Pesan dari Website Desa Bandungan*%0A%0ANama: ${nama}%0AEmail: ${email}%0ANo. WA: ${telp}%0A%0APesan:%0A${pesan}`;
+            window.open(`https://wa.me/6281234567890?text=${message}`, '_blank');
+        }
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
