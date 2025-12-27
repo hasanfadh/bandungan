@@ -62,30 +62,108 @@
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
         
-        /* Hero asymmetric layout */
         .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            min-height: 100vh;
-            align-items: center;
+            display: block;
         }
-        
-        @media (max-width: 1024px) {
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--earth-mid);
+            color: var(--cream);
+            font-weight: 500;
+            text-decoration: none;
+            transition:
+                background-color .25s ease,
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .hero-cta:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 4px;
+            box-shadow: 0 0 0 6px rgba(255,255,255,.35);
+        }
+
+        @media (hover: hover) {
+            .hero-cta:hover {
+                background-color: var(--earth-dark);
+                color: var(--cream);
+                transform: translateY(-1px);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            }
+        }
+
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            min-height: 600px;
+            height: 100%;
+        }
+
+        .hero-content {
+            min-height: calc(100vh - 80px);
+            z-index: 2;
+        }
+
+        @media (max-width: 1023px) {
+            #hero .hero-content {
+                color: var(--cream);
+            }
+
+            #hero .hero-content h1,
+            #hero .hero-content p,
+            #hero .hero-content div {
+                color: var(--cream);
+            }
+
+            #hero .hero-content h1 {
+                text-shadow: 
+                    0 2px 12px rgba(0,0,0,0.55);
+            }
+
+            #hero .hero-content p,
+            #hero .hero-content div {
+                text-shadow: 
+                    0 1px 6px rgba(0,0,0,0.35);
+            }
+
+            .hero-video {
+                filter: brightness(0.6);
+            }
+
+            .hero-cta {
+                background-color: var(--cream);
+                color: var(--earth-dark);
+            }
+        }
+
+        @media (min-width: 1024px) {
             .hero-grid {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: 1fr 1.2fr;
+            }
+
+            .hero-video {
+                position: relative;
+                height: auto;
+            }
+
+            .hero-content {
                 min-height: auto;
             }
         }
-        
-        /* Large typography */
+
+
         .display-1 {
-            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-size: clamp(2.2rem, 7vw, 6rem);
             line-height: 1.1;
             letter-spacing: -0.02em;
         }
         
         .display-2 {
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: clamp(1.8rem, 5vw, 4rem);
             line-height: 1.2;
         }
         
@@ -113,6 +191,31 @@
         .photo-overlay:hover img {
             transform: scale(1.05);
         }
+
+        @media (hover:none) {
+            .photo-overlay:hover img {
+                transform: none;
+            }
+        }
+
+        .section-container {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-container {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section-container {
+                padding-left: 0;
+                padding-right: 0;
+            }   
+        }
         
         /* Asymmetric sections */
         .section-offset {
@@ -122,7 +225,7 @@
         
         @media (min-width: 1024px) {
             .section-offset-left {
-                margin-left: 15%;
+                margin-left: 5%;
                 margin-right: 5%;
             }
             
@@ -155,8 +258,8 @@
             font-size: clamp(1.5rem, 3vw, 2.5rem);
             line-height: 1.4;
             color: var(--earth-mid);
-            padding: 3rem 0;
-            margin: 4rem 0;
+            padding: 2rem 0;
+            margin: 2rem 0;
             border-top: 2px solid var(--earth-mid);
             border-bottom: 2px solid var(--earth-mid);
         }
@@ -215,6 +318,10 @@
         .mobile-menu.active {
             right: 0;
         }
+
+        .mobile-link {
+            padding: 0.75rem 0;
+        }
         
         /* Smooth fade in */
         .fade-in {
@@ -231,11 +338,17 @@
         /* Number accent */
         .number-accent {
             font-family: 'Playfair Display', serif;
-            font-size: 5rem;
+            font-size: 3.5rem;
             font-weight: 700;
             line-height: 0.8;
             color: var(--sand);
             opacity: 0.5;
+        }
+
+        @media (min-width: 768px) {
+            .number-accent {
+                font-size: 4.5rem;
+            }            
         }
         
         /* Link underline effect */
@@ -287,12 +400,12 @@
                 </div>
                 
                 <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center gap-8 text-sm">
+                <div class="hidden md:flex items-center gap-8 mr-4 text-sm">
                     <a href="#hero" class="link-underline" style="color: var(--earth-dark);">Beranda</a>
                     <a href="#tentang" class="link-underline" style="color: var(--earth-dark);">Tentang</a>
                     <a href="#statistik" class="link-underline" style="color: var(--earth-dark);">Statistik</a>
                     <a href="#potensi" class="link-underline" style="color: var(--earth-dark);">Potensi</a>
-                    <a href="#BBK 7" class="link-underline" style="color: var(--earth-dark);">BBK 7</a>
+                    <a href="#bbk7" class="link-underline" style="color: var(--earth-dark);">BBK 7</a>
                     <a href="#kontak" class="link-underline" style="color: var(--earth-dark);">Kontak</a>
                 </div>
                 
@@ -322,58 +435,57 @@
                 <a href="#tentang" class="mobile-link">Tentang</a>
                 <a href="#statistik" class="mobile-link">Statistik</a>
                 <a href="#potensi" class="mobile-link">Potensi</a>
-                <a href="#BBK 7" class="mobile-link">BBK 7</a>
+                <a href="#bbk7" class="mobile-link">BBK 7</a>
                 <a href="#kontak" class="mobile-link">Kontak</a>
             </div>
         </div>
     </div>
 
     <!-- HERO SECTION -->
-    <section id="hero" class="hero-grid pt-20">
+    <section id="hero" class="hero-grid pt-20 relative overflow-hidden">
         <!-- Left: Typography -->
-        <div class="flex items-center px-8 lg:px-16 py-16 lg:py-0">
+        <div class="hero-content flex items-center px-8 lg:px-16 py-16 lg:py-0 relative z-10">
             <div>
-                <div class="text-sm uppercase tracking-widest mb-4" style="color: var(--earth-mid); font-weight: 600;">
+                <div class="text-sm uppercase tracking-widest mb-4" style="font-weight: 600;">
                     Saradan — Madiun
                 </div>
-                <h1 class="display-1 mb-6" style="color: var(--earth-dark);">
+                <h1 class="display-1 mb-6">
                     Desa<br/>Bandungan
                 </h1>
-                <div class="text-xl md:text-2xl italic mb-8" style="font-family: 'Playfair Display', serif; color: var(--earth-mid);">
+                <div class="text-xl md:text-2xl italic mb-8" style="font-family: 'Playfair Display', serif;">
                     Bandungan josjis
                 </div>
-                <p class="text-lg mb-8 max-w-lg" style="color: var(--earth-mid);">
+                <p class="text-lg mb-8 max-w-lg">
                     Sebuah desa di Kecamatan Saradan, Kabupaten Madiun, Jawa Timur yang sedang bertransformasi menuju masa depan yang berkelanjutan.
                 </p>
-                <a href="#BBK 7" class="inline-block px-8 py-4 text-white font-medium" style="background: var(--earth-dark); transition: all 0.3s ease;">
+                <a href="#bbk7" class="hero-cta">
                     Lihat Program BBK 7 →
                 </a>
             </div>
         </div>
         
         <!-- Right: Video Hero -->
-        <div class="relative h-screen lg:h-auto overflow-hidden">
+        <div class="hero-video">
             <video 
                 autoplay 
                 muted 
                 loop 
                 playsinline
-                class="w-full h-full object-cover"
-                style="min-height: 600px;">
+                class="w-full h-full object-cover">
                 <source src="assets/video/desa.mp4" type="video/mp4">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-2d3319/20"></div>
         </div>
     </section>
 
     <!-- INTRO SECTION -->
-    <section id="tentang" class="py-20 section-offset-right">
-        <div class="fade-in">
+    <section id="tentang" class="py-20">
+        <div class="section-container section-offset fade-in">
             <div class="text-sm uppercase tracking-widest mb-6" style="color: var(--earth-mid); font-weight: 600;">
                 Tentang Kami
             </div>
-            <h2 class="display-2 mb-8 max-w-3xl">
-                Menciptakan desa yang maju, sejahtera, dan berkelanjutan
+            <h2 class="display-2 mb-8 max-w-1xl">
+                Menciptakan desa yang maju, <br> sejahtera, dan berkelanjutan
             </h2>
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
                 <div>
@@ -396,7 +508,7 @@
 
     <!-- STATS SECTION -->
     <section id="statistik" class="py-20" style="background: white;">
-        <div class="section-offset-left fade-in">
+        <div class="section-container section-offset fade-in">
             <div class="text-sm uppercase tracking-widest mb-12" style="color: var(--earth-mid); font-weight: 600;">
                 Data & Statistik
             </div>
@@ -474,7 +586,7 @@
 
     <!-- POTENSI SECTION -->
     <section id="potensi" class="py-20">
-        <div class="section-offset fade-in">
+        <div class="section-container section-offset fade-in">
             <div class="text-sm uppercase tracking-widest mb-12" style="color: var(--earth-mid); font-weight: 600;">
                 Potensi Desa
             </div>
@@ -548,8 +660,8 @@
     </section>
 
     <!-- BBK 7 SECTION -->
-    <section id="BBK 7" class="py-20" style="background: var(--earth-dark); color: var(--cream);">
-        <div class="section-offset fade-in">
+    <section id="bbk7" class="py-20" style="background: var(--earth-dark); color: var(--cream);">
+        <div class="section-container section-offset fade-in">
             <div class="bbk7-badge mb-8">
                 Program Unggulan
             </div>
@@ -584,7 +696,7 @@
                         </div>
                         <div>
                             <div class="text-sm uppercase tracking-widest mb-2" style="color: var(--sand); opacity: 0.7;">Dosen Pembimbing</div>
-                            <div class="text-lg">Samidi</div>
+                            <div class="text-lg">Dr. Samidi, S.S., M.A</div>
                         </div>
                     </div>
                 </div>
@@ -709,7 +821,7 @@
             <div class="mb-12">
                 <div class="mb-12">
                     <div class="relative overflow-hidden">
-                        <div class="flex space-x-6 overflow-x-scroll pb-6" style="scrollbar-width: thin; scrollbar-color: var(--earth-mid) transparent;">
+                        <div class="flex space-x-6 overflow-x-scroll snap-x snap-mandatory pb-6" style="scrollbar-width: thin; scrollbar-color: var(--earth-mid) transparent;">
                             <!-- Foto 1 -->
                             <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
                                 <img src="assets/dokum/foto1.png" alt="Foto 1" class="w-full h-full object-cover">
@@ -747,7 +859,7 @@
                     </p>
                 </div>
 
-                <div class="grid grid-cols-4 gap-span-8 gap-12">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
                     <!-- Anggota 1 -->
                     <div class="text-center">
                         <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
@@ -826,7 +938,7 @@
 
     <!-- CONTACT SECTION -->
     <section id="kontak" class="py-20" style="background: white; color: var(--earth-dark);">
-        <div class="section-offset-right fade-in">
+        <div class="section-container section-offset-right fade-in">
             <div class="text-sm uppercase tracking-widest mb-12" style="color: var(--earth-mid); font-weight: 600;">
                 Hubungi Kami
             </div>
@@ -918,7 +1030,7 @@
                         <div><a href="#tentang" class="link-underline" style="color: var(--cream);">Tentang</a></div>
                         <div><a href="#statistik" class="link-underline" style="color: var(--cream);">Statistik</a></div>
                         <div><a href="#potensi" class="link-underline" style="color: var(--cream);">Potensi</a></div>
-                        <div><a href="#BBK 7" class="link-underline" style="color: var(--cream);">BBK 7</a></div>
+                        <div><a href="#bbk7" class="link-underline" style="color: var(--cream);">BBK 7</a></div>
                     </div>
                 </div>
                 
@@ -929,7 +1041,7 @@
                     <p style="color: var(--sand); opacity: 0.8;">
                         Periode Januari 2026<br/>
                         Universitas Airlangga<br/>
-                        Dosen Pembimbing: Samidi
+                        Dosen Pembimbing: Dr. Samidi, S.S., M.A
                     </p>
                 </div>
             </div>
@@ -1005,7 +1117,7 @@
                 return;
             }
             
-            const message = `*Pesan dari Website Desa Bandungan*%0A%0ANama: ${nama}%0AEmail: ${email}%0ANo. WA: ${telp}%0A%0APesan:%0A${pesan}`;
+            const message = encodeURIComponent(`*Pesan dari Website Desa Bandungan*%0A%0ANama: ${nama}%0AEmail: ${email}%0ANo. WA: ${telp}%0A%0APesan:%0A${pesan}`);
             window.open(`https://wa.me/6281234567890?text=${message}`, '_blank');
         }
         
