@@ -166,6 +166,10 @@
             font-size: clamp(1.8rem, 5vw, 4rem);
             line-height: 1.2;
         }
+
+        #lightbox {
+            backdrop-filter: blur(10px);
+        }
         
         /* Photo overlay effect */
         .photo-overlay {
@@ -601,7 +605,7 @@
                 <div class="grid-span-7 photo-overlay h-96">
                     <div class="w-full h-full" style="background: linear-gradient(135deg, var(--earth-light) 0%, var(--rust) 100%);">
                         <div class="flex items-center justify-center h-full text-white text-xl opacity-50">
-                            <img src="assets/template/sawah.png" alt="Sawah Desa Bandungan" class="w-full h-full object-cover">
+                            <img src="assets\dokum\sawah.png" alt="Sawah Desa Bandungan" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -613,9 +617,10 @@
                             Pertanian
                         </h3>
                         <ul class="space-y-3 text-lg">
-                            <li>180 Ha sawah produktif</li>
-                            <li>45 Ha kebun campuran</li>
-                            <li>Panen padi 2x setahun</li>
+                            <li>Sawah produktif:</li>
+                            <li>— Bawang Merah</li>
+                            <li>— Jagung</li>
+                            <li>— Padi</li>
                         </ul>
                     </div>
                 </div>
@@ -628,8 +633,7 @@
                         </h3>
                         <ul class="space-y-3">
                             <li>Pasar tradisional aktif</li>
-                            <li>23 UMKM kuliner</li>
-                            <li>15 toko kelontong</li>
+                            <li>60+ UMKM kuliner</li>
                         </ul>
                     </div>
                 </div>
@@ -638,22 +642,27 @@
                 <div class="grid-span-8 photo-overlay h-96">
                     <div class="w-full h-full" style="background: linear-gradient(135deg, var(--sand) 0%, var(--earth-mid) 100%);">
                         <div class="flex items-center justify-center h-full text-white text-xl opacity-50">
-                            <img src="assets/template/pasar.png" alt="Pasar Tradisional Desa Bandungan" class="w-full h-full object-cover">
+                            <img src="assets/dokum/pasar.JPG" alt="Pasar Tradisional Desa Bandungan" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
             </div>
             
             <!-- Fasilitas List -->
-            <div class="max-w-2xl">
+            <div class="max-w-7xl">
                 <h3 class="text-2xl mb-6" style="font-family: 'Playfair Display', serif; color: var(--earth-dark);">
                     Fasilitas Publik
                 </h3>
-                <div class="grid md:grid-cols-2 gap-4 text-lg" style="color: var(--earth-mid);">
+                <div class="grid md:grid-cols-5 gap-2 text-lg" style="color: var(--earth-mid);">
                     <div>• Balai Desa</div>
+                    <div>• Puskesmas Pembantu</div>
                     <div>• Posyandu (3 unit)</div>
-                    <div>• Masjid (4 unit)</div>
                     <div>• Lapangan Olahraga</div>
+                    <div>• Balai Dusun</div>
+                    <div>• Masjid (4 unit)</div>
+                    <div>• SD (3 unit)</div>
+                    <div>• SMP (1 unit)</div>
+                    <div>• SMA (1 unit)</div>
                 </div>
             </div>
         </div>
@@ -674,8 +683,8 @@
 
             <div class="grid lg:grid-cols-2 gap-16 mb-6">
                 <div>
-                    <h2 class="display-1 mb-8">
-                        Pasar Bersih<br/>Bernilai
+                    <h2 class="display-1 mb-4">
+                        Bandungan<br/>Cerdas Ceria
                     </h2>
                 </div>
                 
@@ -687,7 +696,7 @@
             <div class="grid lg:grid-cols-2 gap-16 mb-16">
                 <div>
                     <p class="text-xl mb-6" style="color: var(--sand);">
-                        Program BBK 7 Universitas Airlangga yang fokus pada pengelolaan sampah pasar melalui pemilahan dan komposting untuk menciptakan pasar yang bersih dan berkelanjutan.
+                        Bandungan Cerdas Ceria adalah program unggulan untuk meningkatkan minat literasi dan kreativitas anak muda di Desa Bandungan melalui kegiatan edukatif, menyenangkan, dan berbasis partisipasi anak.
                     </p>
                     <div class="space-y-4">
                         <div>
@@ -716,9 +725,10 @@
                         <div class="flex gap-4 items-center">
                             <div class="number-accent">01</div>
                             <div class="flex-1">
-                                <h4 class="text-xl font-semibold mb-2">Observasi & Pendekatan Pedagang</h4>
-                                <p style="color: var(--sand); opacity: 0.8;">Survei kondisi pasar dan pendekatan kepada pedagang untuk memahami kebiasaan pengelolaan sampah.</p>
+                                <h4 class="text-xl font-semibold mb-2">Bersih dan Hias Perpustakaan</h4>
+                                <p style="color: var(--sand); opacity: 0.8;">Bersih dan Hias Perpustakaan bertujuan menciptakan ruang baca yang bersih, rapi, dan menarik</p>
                             </div>
+                            <img src="assets/dokum/perpus.png" alt="foto bersih dan hias perpustakaan" class="w-64 h-24 object-cover rounded-lg shadow-lg">
                         </div>
                     </div>
                     
@@ -726,39 +736,54 @@
                         <div class="flex gap-4 items-center">
                             <div class="number-accent">02</div>
                             <div class="flex-1">
-                                <h4 class="text-xl font-semibold mb-2">Sosialisasi Pemilahan Sampah</h4>
-                                <p style="color: var(--sand); opacity: 0.8;">Edukasi tentang pentingnya pemilahan sampah organik dan anorganik.</p>
+                                <h4 class="text-xl font-semibold mb-2">Kelas Masa Depan Remaja Desa</h4>
+                                <p style="color: var(--sand); opacity: 0.8;">Diskusi perencanaan hidup setelah jenjang sekolah</p>
                             </div>
+                            <img src="assets/dokum/masadepan.png" alt="foto kelas masa depan remaja desa" class="w-64 h-24 object-cover rounded-lg shadow-lg">
                         </div>
                     </div>
-                    
+
                     <div class="program-item">
                         <div class="flex gap-4 items-center">
                             <div class="number-accent">03</div>
                             <div class="flex-1">
-                                <h4 class="text-xl font-semibold mb-2">Implementasi Pemilahan & Komposter</h4>
-                                <p style="color: var(--sand); opacity: 0.8;">Penempatan tempat sampah terpilah dan praktik pembuatan kompos.</p>
+                                <h4 class="text-xl font-semibold mb-2">Literasi Digital Remaja</h4>
+                                <p style="color: var(--sand); opacity: 0.8;">Edukasi literasi digital, pemanfaatan teknologi, dan dampak hoaks</p>
                             </div>
+                            <img src="assets/dokum/ldr.png" alt="foto literasi digital remaja" class="w-64 h-24 object-cover rounded-lg shadow-lg">
                         </div>
                     </div>
-                    
+
                     <div class="program-item">
                         <div class="flex gap-4 items-center">
                             <div class="number-accent">04</div>
                             <div class="flex-1">
-                                <h4 class="text-xl font-semibold mb-2">Monitoring & Evaluasi</h4>
-                                <p style="color: var(--sand); opacity: 0.8;">Pengawasan rutin dan apresiasi pedagang teladan.</p>
+                                <h4 class="text-xl font-semibold mb-2">Sedana (Seni Daun Anak)</h4>
+                                <p style="color: var(--sand); opacity: 0.8;">Kegiatan seni daun yang menggabungkan kreativitas anak dengan pemanfaatan sampah organik</p>
                             </div>
+                            <img src="assets/dokum/sedana.png" alt="foto sedana" class="w-64 h-24 object-cover rounded-lg shadow-lg">
                         </div>
                     </div>
-                    
+
                     <div class="program-item">
                         <div class="flex gap-4 items-center">
                             <div class="number-accent">05</div>
                             <div class="flex-1">
-                                <h4 class="text-xl font-semibold mb-2">Penyusunan SOP & Serah Terima</h4>
-                                <p style="color: var(--sand); opacity: 0.8;">Dokumentasi prosedur dan serah terima program untuk keberlanjutan.</p>
+                                <h4 class="text-xl font-semibold mb-2">Green Paper Initiative</h4>
+                                <p style="color: var(--sand); opacity: 0.8;">Proses daur ulang sampah kertas menjadi kertas buram yang siap digunakan kembali</p>
                             </div>
+                            <img src="assets/dokum/green.png" alt="foto green paper initiative" class="w-64 h-24 object-cover rounded-lg shadow-lg">
+                        </div>
+                    </div>
+
+                    <div class="program-item">
+                        <div class="flex gap-4 items-center">
+                            <div class="number-accent">06</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-semibold mb-2">Bandungan Juara</h4>
+                                <p style="color: var(--sand); opacity: 0.8;">Lomba Dongeng, Puisi, dan Menyanyi antar SD se-Bandungan</p>
+                            </div>
+                            <img src="assets/dokum/lomba.png" alt="foto bandungan juara" class="w-64 h-24 object-cover rounded-lg shadow-lg">
                         </div>
                     </div>
                 </div>
@@ -771,14 +796,14 @@
                 </h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-lg">
                     <div>
-                        <h4>Hari Pasar Bersih</h4>
-                        <p style="color: var(--sand); opacity: 0.8;">1 hari khusus bersih-bersih pasar</p>
-                        <img src="assets/foto2.jpeg" alt="foto hari pasar bersih" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
+                        <h4>Edukasi Pembuatan Pupuk Kompos</h4>
+                        <p style="color: var(--sand); opacity: 0.8;">Pembuatan pupuk kompos dari sampah dapur</p>
+                        <img src="assets/dokum/kompos.png" alt="foto edukasi pemilahan sampah" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
                     </div>
                     <div>
                         <h4>Dapur Gizi Pasar</h4>
                         <p style="color: var(--sand); opacity: 0.8;">Cegah stunting dengan bahan lokal</p>
-                        <img src="assets/foto3.jpeg" alt="foto dapur gizi pasar" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
+                        <img src="assets/dokum/dapur.png" alt="foto dapur gizi pasar" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
                     </div>
                     <div>
                         <h4>Pojok Gizi & Kesehatan</h4>
@@ -786,19 +811,19 @@
                         <img src="assets/foto4.jpeg" alt="foto pojok gizi & kesehatan" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
                     </div>
                     <div>
-                        <h4>Kelas Masa Depan Remaja</h4>
-                        <p style="color: var(--sand); opacity: 0.8;">Diskusi perencanaan hidup</p>
-                        <img src="assets/foto5.jpeg" alt="foto kelas masa depan remaja" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
+                        <h4>Pawai Isro' Miroj</h4>
+                        <p style="color: var(--sand); opacity: 0.8;">Pawai taaruf SDN Bandungan 01</p>
+                        <img src="assets/dokum/isro.png" alt="foto isro miroj" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
                     </div>
                     <div>
-                        <h4>Literasi Digital Remaja</h4>
-                        <p style="color: var(--sand); opacity: 0.8;">Edukasi literasi digital dan dampak hoaks</p>
-                        <img src="assets/foto6.jpeg" alt="foto literasi digital remaja" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
+                        <h4>Prolanis</h4>
+                        <p style="color: var(--sand); opacity: 0.8;">Program Pengelolaan Penyakit Kronis</p>
+                        <img src="assets/dokum/prolanis.png" alt="foto literasi digital remaja" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
                     </div>
                     <div>
                         <h4>Aktivasi Media & Arsip Desa</h4>
                         <p style="color: var(--sand); opacity: 0.8;">Pengelolaan website dan arsip digital desa</p>
-                        <img src="assets/foto7.jpeg" alt="foto aktivasi media & arsip desa" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
+                        <img src="assets/dokum/web.png" alt="foto aktivasi media & arsip desa" class="w-full h-40 object-cover rounded-lg shadow-lg mt-4">
                     </div>
                 </div>
             </div>
@@ -814,124 +839,60 @@
 
             <div>
                 <h2 class="display-2 mb-8 max-w-3xl">
-                    Kenali Tim BBK 7 Kami
+                    Galeri BBK 7
                 </h2>
             </div>
 
             <div class="mb-12">
-                <div class="mb-12">
-                    <div class="relative overflow-hidden">
-                        <div class="flex space-x-6 overflow-x-scroll snap-x snap-mandatory pb-6" style="scrollbar-width: thin; scrollbar-color: var(--earth-mid) transparent;">
-                            <!-- Foto 1 -->
-                            <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
-                                <img src="assets/dokum/foto1.png" alt="Foto 1" class="w-full h-full object-cover">
-                            </div>
-                            
-                            <!-- Foto 2 -->
-                            <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
-                                <img src="assets/dokum/foto2.png" alt="Foto 2" class="w-full h-full object-cover">
-                            </div>
-                            
-                            <!-- Foto 3 -->
-                            <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
-                                <img src="assets/dokum/foto3.png" alt="Foto 3" class="w-full h-full object-cover">
-                            </div>
-                            
-                            <!-- Foto 4 -->
-                            <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
-                                <img src="assets/dokum/foto4.png" alt="Foto 4" class="w-full h-full object-cover">
-                            </div>
-                            
-                            <!-- Foto 5 -->
-                            <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
-                                <img src="assets/dokum/foto5.png" alt="Foto 5" class="w-full h-full object-cover">
-                            </div>
-                            
-                            <!-- Foto 6 -->
-                            <div class="flex-shrink-0 w-80 md:w-96 h-64 bg-gray-200 rounded-2xl shadow-xl overflow-hidden snap-center card-hover">
-                                <img src="assets/dokum/foto6.png" alt="Foto 6" class="w-full h-full object-cover">
-                            </div>
-                        </div>
+                <!-- Grid Gallery -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Foto 1 -->
+                    <div class="gallery-item group cursor-pointer overflow-hidden rounded-2xl shadow-xl card-hover" onclick="openLightbox(0)">
+                        <img src="assets/dokum/foto1.png" alt="Foto 1" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
                     </div>
                     
-                    <p class="text-center text-gray-500 mt-6 text-sm md:text-base">
-                        ← Geser ke kanan untuk melihat lebih banyak →
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
-                    <!-- Anggota 1 -->
-                    <div class="text-center">
-                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-                            <img src="assets/anggota/nada.png" alt="Nada" class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Nada</div>
-                        <div style="color: var(--earth-mid); opacity: 0.8;">Ketua</div>
+                    <!-- Foto 2 -->
+                    <div class="gallery-item group cursor-pointer overflow-hidden rounded-2xl shadow-xl card-hover" onclick="openLightbox(1)">
+                        <img src="assets/dokum/foto2.png" alt="Foto 2" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
                     </div>
                     
-                    <!-- Anggota 2 -->
-                    <div class="text-center">
-                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-                            <img src="assets/anggota/elga.png" alt="Elga" class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Elga</div>
-                        <div style="color: var(--earth-mid); opacity: 0.8;">Sekretaris</div>
+                    <!-- Foto 3 -->
+                    <div class="gallery-item group cursor-pointer overflow-hidden rounded-2xl shadow-xl card-hover" onclick="openLightbox(2)">
+                        <img src="assets/dokum/foto3.png" alt="Foto 3" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
                     </div>
                     
-                    <!-- Anggota 3 -->
-                    <div class="text-center">
-                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-                            <img src="assets/anggota/sasa.png" alt="Sasa" class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Sasa</div>
-                        <div style="color: var(--earth-mid); opacity: 0.8;">Bendahara</div>
+                    <!-- Foto 4 -->
+                    <div class="gallery-item group cursor-pointer overflow-hidden rounded-2xl shadow-xl card-hover" onclick="openLightbox(3)">
+                        <img src="assets/dokum/foto4.png" alt="Foto 4" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
                     </div>
                     
-                    <!-- Anggota 4 -->
-                    <div class="text-center">
-                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-                            <img src="assets/anggota/hasan.png" alt="Hasan" class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Hasan</div>
-                        <div style="color: var(--earth-mid); opacity: 0.8;">Acara</div>
+                    <!-- Foto 5 -->
+                    <div class="gallery-item group cursor-pointer overflow-hidden rounded-2xl shadow-xl card-hover" onclick="openLightbox(4)">
+                        <img src="assets/dokum/foto5.png" alt="Foto 5" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
                     </div>
-
-                    <!-- Anggota 5 -->
-                    <div class="text-center">
-                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-                            <img src="assets/anggota/roofi.png" alt="Roofi'" class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Roofi'</div>
-                        <div style="color: var(--earth-mid); opacity: 0.8;">Acara</div>
-                    </div>
-
-                    <!-- Anggota 6 -->
-                    <div class="text-center">
-                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-                            <img src="assets/anggota/viva.png" alt="Viva" class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Viva</div>
-                        <div style="color: var(--earth-mid); opacity: 0.8;">Humas</div>
-                    </div>
-
-                    <!-- Anggota 7 -->
-                    <div class="text-center">
-                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-                            <img src="assets/anggota/hasna.png" alt="Hasna" class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Hasna</div>
-                        <div style="color: var(--earth-mid); opacity: 0.8;">PDD</div>
-                    </div>
-
-                    <!-- Anggota 8 -->
-                    <div class="text-center">
-                        <div class="w-40 h-40 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-                            <img src="assets/anggota/ari.png" alt="Ari" class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <div class="text-xl font-semibold" style="color: var(--earth-dark);">Ari</div>
-                        <div style="color: var(--earth-mid); opacity: 0.8;">PDD</div>
+                    
+                    <!-- Foto 6 -->
+                    <div class="gallery-item group cursor-pointer overflow-hidden rounded-2xl shadow-xl card-hover" onclick="openLightbox(5)">
+                        <img src="assets/dokum/foto6.png" alt="Foto 6" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
+            <button class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300 z-60" onclick="closeLightbox()">&times;</button>
+            
+            <!-- Previous Button -->
+            <button class="absolute left-4 text-white text-5xl font-bold hover:text-gray-300 z-60" onclick="changeImage(-1); event.stopPropagation()">&#10094;</button>
+            
+            <!-- Next Button -->
+            <button class="absolute right-4 text-white text-5xl font-bold hover:text-gray-300 z-60" onclick="changeImage(1); event.stopPropagation()">&#10095;</button>
+            
+            <!-- Image Container -->
+            <div class="max-w-5xl max-h-full" onclick="event.stopPropagation()">
+                <img id="lightbox-img" src="" alt="Preview" class="max-w-full max-h-[90vh] object-contain rounded-lg">
+                <p id="lightbox-caption" class="text-white text-center mt-4 text-lg"></p>
             </div>
         </div>
     </section>
@@ -959,16 +920,16 @@
                         </div>
                         <div>
                             <div class="text-sm uppercase tracking-widest mb-2" style="color: var(--earth-mid); opacity: 0.7;">Telepon</div>
-                            <div class="text-lg">0351-123456</div>
+                            <div class="text-lg">082142866255</div>
                         </div>
                         <div>
                             <div class="text-sm uppercase tracking-widest mb-2" style="color: var(--earth-mid); opacity: 0.7;">Email</div>
                             <div class="text-lg">desabandungan@madiunkab.go.id</div>
                         </div>
                         <div>
-                            <div class="text-sm uppercase tracking-widest mb-2" style="color: var(--earth-mid); opacity: 0.7;">WhatsApp</div>
-                            <a href="https://wa.me/6281234567890" class="text-lg link-underline" style="color: var(--earth-dark);">
-                                +62 812-3456-7890
+                            <div class="text-sm uppercase tracking-widest mb-2" style="color: var(--earth-mid); opacity: 0.7;">WhatsApp (Pak Teguh)</div>
+                            <a href="https://wa.me/6282142866255" class="text-lg link-underline" style="color: var(--earth-dark);">
+                                082142866255
                             </a>
                         </div>
                     </div>
@@ -1051,7 +1012,7 @@
                     <div>© 2026 Desa Bandungan. Website dibuat sebagai bagian dari BBK 7 Universitas Airlangga.</div>
                     <div class="flex gap-6">
                         <a href="https://www.instagram.com/bbk7unair_bandungan/" class="link-underline">Instagram</a>
-                        <a href="https://wa.me/6281234567890" class="link-underline">WhatsApp</a>
+                        <a href="https://wa.me/6282142866255" class="link-underline">WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -1064,6 +1025,15 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileClose = document.getElementById('mobile-close');
         const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const images = [
+            { src: 'assets/dokum/foto1.png', alt: 'Foto 1' },
+            { src: 'assets/dokum/foto2.png', alt: 'Foto 2' },
+            { src: 'assets/dokum/foto3.png', alt: 'Foto 3' },
+            { src: 'assets/dokum/foto4.png', alt: 'Foto 4' },
+            { src: 'assets/dokum/foto5.png', alt: 'Foto 5' },
+            { src: 'assets/dokum/foto6.png', alt: 'Foto 6' }
+        ];
         
         mobileToggle.addEventListener('click', () => {
             mobileMenu.classList.add('active');
@@ -1104,6 +1074,58 @@
         });
         
         fadeElements.forEach(el => fadeObserver.observe(el));
+
+        let currentImageIndex = 0;
+    
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImg.src = images[index].src;
+            lightboxCaption.textContent = images[index].alt;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImg.src = images[currentImageIndex].src;
+            lightboxCaption.textContent = images[currentImageIndex].alt;
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('hidden')) {
+                if (e.key === 'ArrowLeft') {
+                    changeImage(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changeImage(1);
+                } else if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            }
+        });
         
         // WhatsApp send
         function sendWhatsApp() {
@@ -1118,7 +1140,7 @@
             }
             
             const message = encodeURIComponent(`*Pesan dari Website Desa Bandungan*%0A%0ANama: ${nama}%0AEmail: ${email}%0ANo. WA: ${telp}%0A%0APesan:%0A${pesan}`);
-            window.open(`https://wa.me/6281234567890?text=${message}`, '_blank');
+            window.open(`https://wa.me/6282142866255?text=${message}`, '_blank');
         }
         
         // Smooth scroll
